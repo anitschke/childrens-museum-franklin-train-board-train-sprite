@@ -2,7 +2,7 @@
 
 This is a simple program to aid in building a sprite sheet of a train for [the train arrival board](https://github.com/anitschke/childrens-museum-franklin-train-board) that I built for the [Children's Museum of Franklin](https://www.childrensmuseumfranklin.org/).
 
-![train animation](./trainScaled.gif)
+![train animation](./trainScaled_black.gif)
 
 ## Details
 In general it works by using ImageMagick to take some source images/sprites and build them into one final sprite. This allows for easy editing of things like the look of the train as it can rebuild the final massive sprite sheet without having to manually modify each of the frames.

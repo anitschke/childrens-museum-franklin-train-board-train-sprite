@@ -8,6 +8,8 @@ SMOKE_SPRITE_SHEET="smokeSpriteSrc.bmp"
 OUTPUT="train.bmp"
 GIF_OUTPUT="train.gif"
 GIF_OUTPUT_SCALED="trainScaled.gif"
+GIF_OUTPUT_BLACK="train_black.gif"
+GIF_OUTPUT_SCALED_BLACK="trainScaled_black.gif"
 WIDTH=64
 HEIGHT=32
 
@@ -85,7 +87,7 @@ done
 # Finally add one final black frame at the very end to make sure we don't have
 # any lingering smoke left over
 FINAL_BLACK_FRAME="$TMPDIR/zzz_final_black.bmp"
-magick -size ${WIDTH}x${HEIGHT} xc:black "$FINAL_BLACK_FRAME"
+magick -size ${WIDTH}x${HEIGHT} xc:transparent "$FINAL_BLACK_FRAME"
 
 echo "Deleting padded version before building the final sprite sheet"
 rm "$PADDED"
@@ -105,8 +107,19 @@ rm "$TMPDIR"/train_full_color.bmp
 echo "Stacking frames vertically into $GIF_OUTPUT..."
 magick -delay 5 -loop 0 -dispose Background -background black "$TMPDIR"/*.bmp "$GIF_OUTPUT"
 
+echo "Creating GIF with black background $GIF_OUTPUT..."
+magick -dispose none -delay 0 -size "$WIDTH"x"$HEIGHT" xc:black \
+    -delay 5 -loop 0 -dispose Previous -background black "$TMPDIR"/*.bmp "$GIF_OUTPUT_BLACK"
+
+SCALE=8
+
 echo "Stacking frames vertically into $GIF_OUTPUT_SCALED..."
-magick -delay 5 -loop 0 -dispose Background -background black "$TMPDIR"/*.bmp -filter point -scale $((WIDTH * 8))x$((HEIGHT * 8)) "$GIF_OUTPUT_SCALED"
+magick -delay 5 -loop 0 -dispose Background -background black "$TMPDIR"/*.bmp -filter point -scale $((WIDTH * SCALE))x$((HEIGHT * SCALE)) "$GIF_OUTPUT_SCALED"
+
+echo "Creating scaled GIF with black background $GIF_OUTPUT_SCALED_BLACK..."
+magick -dispose none -delay 0 -size "$((WIDTH * SCALE))x$((HEIGHT * SCALE))" xc:black \
+    -delay 5 -loop 0 -dispose Previous -background black "$TMPDIR"/*.bmp -filter point -scale $((WIDTH * SCALE))x$((HEIGHT * SCALE)) "$GIF_OUTPUT_SCALED_BLACK"
+
 
 # Clean up
 rm -rf "$TMPDIR"
