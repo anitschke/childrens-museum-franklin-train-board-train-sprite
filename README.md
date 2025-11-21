@@ -15,5 +15,5 @@ And another without any sort of Children's Museum of Franklin branding.
 In general it works by using ImageMagick to take some source images/sprites and build them into one final sprite. This allows for easy editing of things like the look of the train as it can rebuild the final massive sprite sheet without having to manually modify each of the frames.
 
 There are two sources.
-* `trainSrc.bmp` This is the still of the train and we move forward by one pixel for each frame in the sprite sheet.
+* `trainSrc(CMF|Unbranded).bmp` This is the still of the train and we move forward by one pixel for each frame in the sprite sheet.
 * smokeSrc.bmp` This is a looping sprite sheet of smoke coming out of the smoke stack that I manually animated using smokeSingleFrameSrc.bmp. This gets "attached" to the smoke stack and just loops as the train drives forward.
