@@ -2,14 +2,19 @@
 
 # Generates a vertical sprite sheet where each frame is a 64x32 crop
 # of the train image shifted one pixel at a time, with animated smoke.
+INPUT=$1
+DERIVED_DIR=$2
 
-INPUT="trainSrc.bmp"
+mkdir -p $DERIVED_DIR
+
 SMOKE_SPRITE_SHEET="smokeSpriteSrc.bmp"
-OUTPUT="train.bmp"
-GIF_OUTPUT="train.gif"
-GIF_OUTPUT_SCALED="trainScaled.gif"
-GIF_OUTPUT_BLACK="train_black.gif"
-GIF_OUTPUT_SCALED_BLACK="trainScaled_black.gif"
+
+OUTPUT="$DERIVED_DIR/train.bmp"
+GIF_OUTPUT="$DERIVED_DIR/train.gif"
+GIF_OUTPUT_SCALED="$DERIVED_DIR/trainScaled.gif"
+GIF_OUTPUT_BLACK="$DERIVED_DIR/train_black.gif"
+GIF_OUTPUT_SCALED_BLACK="$DERIVED_DIR/trainScaled_black.gif"
+
 WIDTH=64
 HEIGHT=32
 

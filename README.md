@@ -2,13 +2,13 @@
 
 This is a simple program to aid in building a sprite sheet of a train for [the train arrival board](https://github.com/anitschke/childrens-museum-franklin-train-board) that I built for the [Children's Museum of Franklin](https://www.childrensmuseumfranklin.org/).
 
-![train animation](./trainScaled_black.gif)
+There are two versions of this animation. One that has Children's Museum of Franklin logo and mascot in it.
 
+![train animation](./derived/cmf/trainScaled_black.gif)
 
-The above animation is the newer one that has the Children's Museum of Franklin logo and mascot in it. I there is a simpler one without that in the older commit 
-[0d49f0f](https://github.com/anitschke/childrens-museum-franklin-train-board-train-sprite/commit/0d49f0fe858450c2b0db90770b5e7057c8f1f7ed)
+And another without any sort of Children's Museum of Franklin branding.
 
-![train animation](./trainScaled_black_0d49f0f.gif)
+![train animation](./derived/unbranded/trainScaled_black.gif))
 
 
 ## Details
